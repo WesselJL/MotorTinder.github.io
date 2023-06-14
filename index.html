@@ -10,8 +10,8 @@
     }
     .bullet-point {
       display: inline-block;
-      width: 20px;
-      height: 20px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       border: 2px solid black;
       margin-right: 5px;
@@ -35,15 +35,18 @@
     .description-box {
       margin-top: 20px;
     }
+    .carousel-img {
+      height: 400px; /* Adjust the height as desired */
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-7"> <!-- Increase the column size to accommodate the larger carousel -->
         <h3>Title</h3>
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-9"> <!-- Increase the column size to accommodate the larger carousel -->
             <div id="carouselExample" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
                 <li data-target="#carouselExample" data-slide-to="0" class="active"></li>
@@ -52,13 +55,13 @@
               </ol>
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/fe51c1133831803.61c72b1bb96cd.jpg" class="d-block w-100" alt="Image 1">
+                  <img src="https://images.marktplaats.com/api/v1/listing-mp-p/images/02/022f4f7c-2cbe-4a6e-928a-d733ea023e75?rule=ecg_mp_eps$_86" class="d-block carousel-img" alt="Image 1">
                 </div>
                 <div class="carousel-item">
-                  <img src="https://images.marktplaats.com/api/v1/listing-mp-p/images/02/022f4f7c-2cbe-4a6e-928a-d733ea023e75?rule=ecg_mp_eps$_86" class="d-block w-100" alt="Image 2">
+                  <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/fe51c1133831803.61c72b1bb96cd.jpg" class="d-block carousel-img" alt="Image 2">
                 </div>
                 <div class="carousel-item">
-                  <img src="https://images.marktplaats.com/api/v1/listing-mp-p/images/a3/a38d97f8-5370-4709-91ad-9755437a6d42?rule=ecg_mp_eps$_84" class="d-block w-100" alt="Image 3">
+                  <img src="https://images.marktplaats.com/api/v1/listing-mp-p/images/a3/a38d97f8-5370-4709-91ad-9755437a6d42?rule=ecg_mp_eps$_84" class="d-block carousel-img" alt="Image 3">
                 </div>
               </div>
               <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
@@ -71,7 +74,7 @@
               </a>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3"> <!-- Adjust the column size to accommodate the description box -->
             <div class="form-group">
               <label for="description">Description:</label>
               <textarea id="description" name="description" rows="4" class="form-control" readonly></textarea>
@@ -79,7 +82,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-5"> <!-- Decrease the column size to accommodate the larger carousel -->
         <div class="form-group description-box">
           <label for="cosmetisch">Cosmetisch:</label>
           <div>
