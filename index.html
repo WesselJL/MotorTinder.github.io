@@ -7,6 +7,25 @@
     body {
       background-color: #333;
       color: #fff;
+      margin-top: 50px; /* Add margin to make room for the top bar */
+    }
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50px;
+      background-color: #113752; /* Slight dark blue color for the top bar */
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .top-bar a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold; /* Make the directory titles bold */
+      cursor: pointer;
     }
     .green-btn {
       background-color: green;
@@ -70,6 +89,11 @@
   </style>
 </head>
 <body>
+  <div class="top-bar">
+    <a href="blank.html">Dashboard</a> <!-- Redirects to a new blank page -->
+    <a href="blank.html">Data</a> <!-- Redirects to a new blank page -->
+    <a href="blank.html">Purchases</a> <!-- Redirects to a new blank page -->
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-md-7"> <!-- Increase the column size to accommodate the larger carousel -->
