@@ -3,11 +3,16 @@
 <head>
   <title>Image Carousel with Form</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <!-- CSS styles -->
   <style>
+    /* Styles for the green button */
     .green-btn {
       background-color: green;
       color: white;
     }
+
+    /* Styles for the bullet points */
     .bullet-point {
       display: inline-block;
       width: 30px;
@@ -17,24 +22,36 @@
       margin-right: 5px;
       cursor: pointer;
     }
+
+    /* Styles for the selected bullet point */
     .bullet-point.selected {
       background-color: green;
     }
+
+    /* Styles for the square input */
     .square-input {
       width: 70px;
       height: 40px;
       text-align: center;
     }
+
+    /* Styles for the row */
     .row {
       display: flex;
       flex-direction: row;
     }
+
+    /* Styles for the columns */
     .col-md-6 {
       flex: 1;
     }
+
+    /* Styles for the description box */
     .description-box {
       margin-top: 20px;
     }
+
+    /* Styles for the carousel images */
     .carousel-img {
       height: 400px; /* Adjust the height as desired */
     }
@@ -43,27 +60,34 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-md-7"> <!-- Increase the column size to accommodate the larger carousel -->
+      <div class="col-md-7">
         <h3>Title</h3>
         <div class="row">
-          <div class="col-md-9"> <!-- Increase the column size to accommodate the larger carousel -->
+          <div class="col-md-9">
+            <!-- Image Carousel -->
             <div id="carouselExample" class="carousel slide" data-ride="carousel">
+              <!-- Carousel indicators -->
               <ol class="carousel-indicators">
                 <li data-target="#carouselExample" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExample" data-slide-to="1"></li>
                 <li data-target="#carouselExample" data-slide-to="2"></li>
               </ol>
+              <!-- Carousel inner content -->
               <div class="carousel-inner">
+                <!-- First carousel item -->
                 <div class="carousel-item active">
                   <img src="https://images.marktplaats.com/api/v1/listing-mp-p/images/02/022f4f7c-2cbe-4a6e-928a-d733ea023e75?rule=ecg_mp_eps$_86" class="d-block carousel-img" alt="Image 1">
                 </div>
+                <!-- Second carousel item -->
                 <div class="carousel-item">
                   <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/fe51c1133831803.61c72b1bb96cd.jpg" class="d-block carousel-img" alt="Image 2">
                 </div>
+                <!-- Third carousel item -->
                 <div class="carousel-item">
                   <img src="https://images.marktplaats.com/api/v1/listing-mp-p/images/a3/a38d97f8-5370-4709-91ad-9755437a6d42?rule=ecg_mp_eps$_84" class="d-block carousel-img" alt="Image 3">
                 </div>
               </div>
+              <!-- Carousel control buttons -->
               <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -74,7 +98,8 @@
               </a>
             </div>
           </div>
-          <div class="col-md-3"> <!-- Adjust the column size to accommodate the description box -->
+          <div class="col-md-3">
+            <!-- Description Box -->
             <div class="form-group">
               <label for="description">Description:</label>
               <textarea id="description" name="description" rows="4" class="form-control" readonly></textarea>
@@ -82,10 +107,12 @@
           </div>
         </div>
       </div>
-      <div class="col-md-5"> <!-- Decrease the column size to accommodate the larger carousel -->
+      <div class="col-md-5">
+        <!-- Form section -->
         <div class="form-group description-box">
           <label for="cosmetisch">Cosmetisch:</label>
           <div>
+            <!-- Bullet points for cosmetisch -->
             <span class="bullet-point" onclick="toggleBulletPoint('cosmetisch', 1)"></span>
             <span class="bullet-point" onclick="toggleBulletPoint('cosmetisch', 2)"></span>
             <span class="bullet-point" onclick="toggleBulletPoint('cosmetisch', 3)"></span>
@@ -96,6 +123,7 @@
         <div class="form-group">
           <label for="motorisch">Motorisch:</label>
           <div>
+            <!-- Bullet points for motorisch -->
             <span class="bullet-point" onclick="toggleBulletPoint('motorisch', 1)"></span>
             <span class="bullet-point" onclick="toggleBulletPoint('motorisch', 2)"></span>
             <span class="bullet-point" onclick="toggleBulletPoint('motorisch', 3)"></span>
@@ -106,6 +134,7 @@
         <div class="form-group">
           <label for="onderhoudsonderdelen">Onderhoudsonderdelen:</label>
           <div>
+            <!-- Bullet points for onderhoudsonderdelen -->
             <span class="bullet-point" onclick="toggleBulletPoint('onderhoudsonderdelen', 1)"></span>
             <span class="bullet-point" onclick="toggleBulletPoint('onderhoudsonderdelen', 2)"></span>
             <span class="bullet-point" onclick="toggleBulletPoint('onderhoudsonderdelen', 3)"></span>
@@ -118,30 +147,37 @@
           <input type="text" id="opmerkingen" name="opmerkingen" class="form-control">
         </div>
         <div class="form-group">
+          <!-- Button to confirm data -->
           <button type="button" onclick="confirmData()" class="btn btn-primary green-btn">Check</button>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Required JavaScript libraries -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
   <script>
+    // Object to store selected values for each category
     var selectedValues = {
       cosmetisch: null,
       motorisch: null,
       onderhoudsonderdelen: null
     };
 
+    // Function to toggle bullet point selection for a category and level
     function toggleBulletPoint(category, level) {
       var bulletPoint = event.target;
       var isSelected = bulletPoint.classList.contains('selected');
 
+      // If the bullet point is already selected, deselect it and set the value to null
       if (isSelected) {
         bulletPoint.classList.remove('selected');
         selectedValues[category] = null;
       } else {
+        // If the bullet point is not selected, select it and set the value to the chosen level
         var categoryBulletPoints = bulletPoint.parentElement.getElementsByClassName('bullet-point');
         for (var i = 0; i < categoryBulletPoints.length; i++) {
           categoryBulletPoints[i].classList.remove('selected');
@@ -152,6 +188,7 @@
       }
     }
 
+    // Function to confirm the entered data
     function confirmData() {
       var confirmedValues = JSON.stringify(selectedValues);
       var cosmetischDigits = selectedValues.cosmetisch;
@@ -167,6 +204,7 @@
             "\nOnderhoudsonderdelen: (" + onderhoudsonderdelenDigits + ")" +
             "\nOpmerkingen: " + opmerkingen);
       
+      // Log the values to the console
       console.log('Opmerkingen:', opmerkingen);
       console.log('Selected Values:', confirmedValues);
     }
