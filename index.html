@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Image Carousel with Form</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -70,6 +71,12 @@
       color: #fff;
       border: none;
     }
+    .form-control[readonly] {
+      background-color: #222;
+      color: #fff;
+      border: none;
+      cursor: default;
+    }
     .form-control:focus {
       background-color: #222;
       color: #fff;
@@ -86,12 +93,13 @@
     label {
       color: #fff;
     }
-    
+
     .container {
       margin-top: 100px; /* Add margin to move everything down */
     }
   </style>
 </head>
+
 <body>
   <div class="top-bar">
     <a href="https://wesseljl.github.io/DashboardMotorTinder.github.io/">Dashboard</a> <!-- Redirects to a new blank page -->
@@ -132,6 +140,10 @@
             </div>
           </div>
           <div class="col-md-3"> <!-- Adjust the column size to accommodate the description box -->
+            <div class="form-group">
+              <label for="price">Price:</label>
+              <input type="text" id="price" name="price" class="form-control" readonly>
+            </div>
             <div class="form-group">
               <label for="description">Description:</label>
               <textarea id="description" name="description" rows="4" class="form-control" readonly></textarea>
@@ -210,29 +222,16 @@
     }
 
     function confirmData() {
-      var confirmedValues = JSON.stringify(selectedValues);
-      var cosmetischDigits = selectedValues.cosmetisch;
-      var motorischDigits = selectedValues.motorisch;
-      var onderhoudsonderdelenDigits = selectedValues.onderhoudsonderdelen;
-      var description = document.getElementById("description").value;
-      var opmerkingen = document.getElementById("opmerkingen").value;
+      var price = document.getElementById('price').value;
+      var description = document.getElementById('description').value;
+      var opmerkingen = document.getElementById('opmerkingen').value;
 
-      // Perform any desired actions with the entered data
-      // For example, you can display the values in an alert box
-      alert("Cosmetisch: (" + cosmetischDigits + ")" +
-            "\nMotorisch: (" + motorischDigits + ")" +
-            "\nOnderhoudsonderdelen: (" + onderhoudsonderdelenDigits + ")" +
-            "\nOpmerkingen: " + opmerkingen);
-      
+      console.log('Price:', price);
+      console.log('Description:', description);
       console.log('Opmerkingen:', opmerkingen);
-      console.log('Selected Values:', confirmedValues);
+      console.log('Selected Values:', selectedValues);
     }
-
-    // Disable text input for the description textarea
-    var descriptionInput = document.getElementById("description");
-    descriptionInput.disabled = true;
-    descriptionInput.style.backgroundColor = "#444";
-    descriptionInput.style.color = "#fff";
   </script>
 </body>
+
 </html>
